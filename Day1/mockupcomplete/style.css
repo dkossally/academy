@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+
+.header{
+    background:#003E63;
+    height: 60px;
+}
+
+.content{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.title{
+    padding-top: 30px;
+    border-bottom: 1px solid #E3E3E3;
+}
+
+.content .text{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #003E63;
+    width: 80%;
+}
+
+.download{
+    background:#003E63;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 0px 20px 0px 20px;
+    color: white;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+.button{
+    color: white;
+}
+
+.table{
+    padding-top: 20px;
+}
+
+.row{
+    display: flex;
+    margin: 0px;
+}
+
+.cell{
+    border: solid 1px #E3E3E3;
+    width: 25%;
+    padding: 8px;
+}
+
+.alternate{
+    background: #E3E3E3;
+}
+
+.column{
+    border: solid 1px black;
+    background:#003E63;
+    color: white;
+}
+
+.tabselect{
+    padding-top: 20px;
+}
+
+.tab{
+    padding: 20px 10px 20px 10px;
+    width: 200px;
+    text-align: center;
+}
+
+.unselected{
+    color: gray;
+    border-bottom: 1px solid #E3E3E3;
+}
+
+.selected{
+    color: #003E63;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top: 1px solid #E3E3E3;
+    border-left: 1px solid #E3E3E3;
+    border-right: 1px solid #E3E3E3;
+}
+
+.tablefooter{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    background: #E3E3E3;
+}
+
+.section{
+    min-width: 20%;
+    display: flex;
+}

@@ -10,7 +10,7 @@
 #### JavaScript
 * TODO
 #### Lightning Web Components
-* TODO
+* Lightning Web Components Developer Guide - https://developer.salesforce.com/docs/component-library/documentation/lwc
 #### Useful Dev Tools
 * Color Picker Chrome Extension - https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en
 * VSCode Live Server - https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer

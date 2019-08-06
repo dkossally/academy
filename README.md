@@ -13,3 +13,4 @@
 * TODO
 #### Useful Dev Tools
 * Color Picker Chrome Extension - https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en
+* VSCode Live Server - https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer

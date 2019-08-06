@@ -11,3 +11,5 @@
 * TODO
 #### Lightning Web Components
 * TODO
+#### Useful Dev Tools
+* Color Picker Chrome Extension - https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en

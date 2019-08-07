@@ -92,7 +92,7 @@ body {
 
 .unselected{
     color: gray;
-    border-bottom: 1px solid #E3E3E3;
+    border-bottom: 1px solid #F9F9F9;
 }
 
 .selected{

@@ -11,6 +11,7 @@
 * DOM Viewer - https://software.hixie.ch/utilities/js/live-dom-viewer/
 #### Lightning Web Components
 * Lightning Web Components Developer Guide - https://developer.salesforce.com/docs/component-library/documentation/lwc
+* LWC Playground - https://developer.salesforce.com/docs/component-library/tools/playground
 #### Useful Dev Tools
 * Color Picker Chrome Extension - https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en
 * VSCode Live Server - https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer

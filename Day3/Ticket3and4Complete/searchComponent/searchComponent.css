@@ -1,0 +1,103 @@
+.container{
+    height: 700px;
+    padding: 20px;
+    background: white;
+}
+
+.searchbar{
+    height: 40px;
+    border-bottom: 1px solid #c9c7c5;
+    font-size: 16px;
+}
+
+.searchinput{
+    height: 100%;
+    width: 100%;
+}
+
+::placeholder{
+    font-size: 16px;
+}
+
+.searchbutton{
+    height: 100%;
+    width: 100%;
+    background: #0070d2;
+    border: none;
+    color: white;
+}
+
+.searchbutton:hover{
+    background: #253045;
+}
+
+.searchbutton:active{
+    background: #0070d2;
+}
+
+.resultsTable{
+    padding-top: 20px;
+}
+
+.cell{
+    padding: 10px;
+}
+
+.tableheader{
+    border-top: 1px solid #c9c7c5;
+    border-bottom: 1px solid #c9c7c5;
+}
+
+.headercell{
+    background: #005583;
+    color: white;
+    border-right: 1px solid #c9c7c5;
+}
+
+.headercell:first-child{
+    border-left: 1px solid #c9c7c5;
+}
+
+.tablerows{
+    height: 200px;
+    border-left: 1px solid #c9c7c5;
+    border-right: 1px solid #c9c7c5;
+}
+
+.row{
+    border-bottom: 1px solid #c9c7c5;
+}
+
+.rowcell{
+    border-right: 1px solid #c9c7c5;
+}
+
+.rowcell:last-child{
+    padding: 0px;
+    border: none;
+}
+
+.tablefooter{
+    height: 40px;
+    width: 100%;
+    background: #c9c7c5;
+}
+
+.bookmark{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.bookmark:hover{
+    background: #253045;
+    color: white;
+}
+
+.bookmark:active{
+    background: #505050;
+}
+
+.divider{
+    height: 20px;
+}

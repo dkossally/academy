@@ -1,0 +1,59 @@
+<template>
+    <div class="container">
+        <div class="searchbar slds-grid">
+            <div class="slds-col slds-size_3-of-4">
+                <input class="searchinput" type="text" onchange={updateTerm} onkeyup={searchTypeahead} placeholder="Search"/>
+            </div>
+            <div class="slds-col slds-size_1-of-4">
+                <button class="searchbutton" onclick={search}>Go</button>
+            </div>
+        </div>
+        <div class="resultsTable">
+            <div class="tableheader slds-grid">
+                <div class="cell headercell slds-col slds-size_2-of-6">Object</div>
+                <div class="cell headercell slds-col slds-size_3-of-6">Name</div>
+                <div class="cell headercell slds-col slds-size_1-of-6">Bookmark</div>
+            </div>
+            <div class="tablerows slds-scrollable">
+                <template if:true={hasResults}>
+                    <template for:each={results} for:item="result">
+                        <div class="row slds-grid" key={result.id}>
+                            <div class="cell rowcell slds-col slds-size_2-of-6">{result.sobjectname}</div>
+                            <div class="cell rowcell slds-col slds-size_3-of-6">{result.name}</div>
+                            <div class="cell rowcell slds-col slds-size_1-of-6">
+                                <button class="bookmark" data-id={result.id} data-object={result.sobjectname} onclick={createBookmark}>Save Bookmark</button>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+            </div>
+            <div class="tablefooter">
+
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+
+        <div class="resultsTable">
+            <div class="tableheader slds-grid">
+                <div class="cell headercell slds-col slds-size_2-of-6">Object</div>
+                <div class="cell headercell slds-col slds-size_3-of-6">Name</div>
+                <div class="cell headercell slds-col slds-size_1-of-6">Bookmark</div>
+            </div>
+            <div class="tablerows slds-scrollable">
+                <template for:each={bookmarks} for:item="bookmark">
+                    <div class="row slds-grid" key={bookmark.id}>
+                        <div class="cell rowcell slds-col slds-size_2-of-6">{bookmark.sobjectname}</div>
+                        <div class="cell rowcell slds-col slds-size_3-of-6">{bookmark.name}</div>
+                        <div class="cell rowcell slds-col slds-size_1-of-6">
+                            <button class="bookmark">Remove Bookmark</button>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="tablefooter">
+        
+            </div>
+        </div>
+    </div>
+</template>

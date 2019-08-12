@@ -1,5 +1,8 @@
 # academy
 ## SA8 UI Repo
+### Lab Documents
+* Lab Requirements - https://docs.google.com/document/d/1vcAvX12CUZxLNR2uq12IHKQLBzqEfpkaiyx7jFpv-bY/edit
+* Agenda - https://docs.google.com/document/d/1eCaWWfYHaUP0LsM44WsGEelHaqSZyI8JWjVFAmDsaf8/edit
 ### Resources
 #### HTML/CSS
 * Mozilla Dev network - https://developer.mozilla.org/en-US/

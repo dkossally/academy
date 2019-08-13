@@ -3,6 +3,10 @@
 ### Lab Documents
 * Lab Requirements - https://docs.google.com/document/d/1vcAvX12CUZxLNR2uq12IHKQLBzqEfpkaiyx7jFpv-bY/edit
 * Agenda - https://docs.google.com/document/d/1eCaWWfYHaUP0LsM44WsGEelHaqSZyI8JWjVFAmDsaf8/edit
+### Slide Decks
+* Day 1 - 
+* Day 2 - https://docs.google.com/presentation/d/13qTGBGQYf5ZPk_nWMKt2UphCTeYBrUvL_ymtk0cCXC4/edit#slide=id.g5e89177355_0_96
+* Day 3 - 
 ### Resources
 #### HTML/CSS
 * Mozilla Dev network - https://developer.mozilla.org/en-US/

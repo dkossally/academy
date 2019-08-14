@@ -6,7 +6,7 @@
 ### Slide Decks
 * Day 1 - https://docs.google.com/presentation/d/1BIzj_P2qxsQzpPTz6sABx5ELWLOEYCk7o89rcFrB_vg/edit
 * Day 2 - https://docs.google.com/presentation/d/13qTGBGQYf5ZPk_nWMKt2UphCTeYBrUvL_ymtk0cCXC4/edit
-* Day 3 - 
+* Day 3 - https://docs.google.com/presentation/d/1kpk5itqKdIZXbTdhKIKfLbdUbAPDBcLr2dpOiAA64aU/edit
 ### Resources
 #### HTML/CSS
 * Mozilla Dev network - https://developer.mozilla.org/en-US/

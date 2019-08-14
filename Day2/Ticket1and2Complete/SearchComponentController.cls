@@ -1,62 +1,104 @@
 public with sharing class SearchComponentController {
     
-    public static Integer MAX_RESULTS = 100;
+    public static Integer PAGE_SIZE = 5;
+    public static String accountIcon = 'standard:account';
+    public static String contactIcon = 'standard:contact';
+    public static String opptyIcon = 'standard:opportunity';
+    public static String leadIcon = 'standard:lead';
 
-    //Data Transfer Object
-    class SearchResult{
+    //Data Transfer Object - Ticket 2
+    class SearchResult implements Comparable{
         String id;
         String sobjectname;
         String icon;
+        Datetime createddate;
         String name;
 
-        public SearchResult(String id, String sobjectname, String icon, String name){
+        public SearchResult(String id, String sobjectname, String icon, Datetime createddate, String name){
             this.id = id;
             this.sobjectname = sobjectname;
             this.icon = icon;
+            this.createddate = createddate;
             this.name = name;
         }
+
+        public Integer compareTo(Object compare){
+            SearchResult searchResult = (SearchResult) compare;
+            Integer result = 0;
+            if(name > searchResult.name) result = 1;
+            if(name < searchResult.name) result = -1;
+            return result;
+        }
+
     }
 
+    //TICKET 2
     @AuraEnabled
-    public static String search(String searchTerm){
+    public static Map<String, Object> search(String searchTerm, Integer page){
+
+        // Check for any existing bookmarks
+        List<Bookmark__c> bookmarks = [select Id, Record_ID__c, Object__c from Bookmark__c];
+        Set<Id> bookmarkedIds = new Set<Id>();
+        for(Bookmark__c book : bookmarks){
+            bookmarkedIds.add(book.Record_ID__c);
+        }
 
         // Prepare query paramters
         searchTerm += '*';
-
+        System.debug(searchTerm);
+        System.debug(page);
         // Execute search query
         List<List<SObject>> searchResults = [FIND :searchTerm IN ALL FIELDS RETURNING
-            Account (Id, Name),
-            Opportunity (Id, Name),
-            Lead (Id, Name)
-            LIMIT :MAX_RESULTS];
+            Account (Id, Name, CreatedDate WHERE id NOT IN :bookmarkedIds),
+            Contact (Id, Name, CreatedDate WHERE id NOT IN :bookmarkedIds),
+            Lead (Id, Name, CreatedDate WHERE id NOT IN :bookmarkedIds)];
+
+        System.debug(searchResults);
 
         // Prepare results
-        List<SearchResult> results = new List<SearchResult>();
+        List<SearchResult> allresults = new List<SearchResult>();
+        List<SearchResult> pageresults = new List<SearchResult>();
 
-        // Extract Accounts & convert them into SearchResult
-        String accountIcon = 'standard:account';
-        Account [] accounts = ((List<Account>) searchResults[0]);
-        for (Account account : accounts) {
-            results.add(new SearchResult(account.Id, 'Account', accountIcon, account.Name));
+        for(List<SObject> objectList : searchResults){
+            if(!objectList.isEmpty()){
+                String sobjecttype = objectList.getSObjectType().getDescribe().getLabel();
+                for(SObject obj : objectList){
+                    allresults.add(new SearchResult((String)obj.get('Id') , sobjecttype, getIconClass(sobjecttype), (DateTime)obj.get('CreatedDate'), (String)obj.get('Name')));
+                }
+            }
+        }
+        allresults.sort();
+        System.debug(allresults);
+        Integer minBound = page * PAGE_SIZE;
+        Integer maxBound = (page * PAGE_SIZE) + PAGE_SIZE >= allresults.size() ? allresults.size() : (page * PAGE_SIZE) + PAGE_SIZE;
+        if(!allresults.isEmpty()){
+            for(Integer i = minBound; i < maxBound; i++){
+                pageresults.add(allresults[i]);
+            }
         }
 
-        // Extract Opportunities & convert them intoSearchResult
-        String opptyIcon = 'standard:opportunity';
-        Opportunity [] opptys = ((List<Opportunity>) searchResults[1]);
-        for (Opportunity oppty : opptys) {
-            results.add(new SearchResult(oppty.Id, 'Opportunity', opptyIcon, oppty.Name));
+        Integer maxPages = Math.ceil(allresults.size() / PAGE_SIZE).intValue();
+
+        Map<String, Object> returnMap = new Map<String, Object>();
+
+        returnMap.put('searchresults', JSON.serialize(pageresults));
+        returnMap.put('maxpages', maxPages);
+
+        return returnMap;
+
+    }
+
+    public static String getIconClass(String sobjecttype){
+        if(sobjecttype == 'Account'){
+            return accountIcon;
         }
-
-        // Extract Opportunities & convert them into SearchResult
-        String leadIcon = 'standard:lead';
-        Lead [] leads = ((List<Lead>) searchResults[2]);
-        for (Lead lead : leads) {
-            results.add(new SearchResult(lead.Id, 'Lead', leadIcon, lead.Name));
+        if(sobjecttype == 'Contact'){
+            return contactIcon;
         }
-
-        System.debug(results);
-        return JSON.serialize(results);
-
+        if(sobjecttype == 'Lead'){
+            return leadIcon;
+        }
+        return '';
     }
 
 }

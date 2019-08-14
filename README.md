@@ -20,6 +20,7 @@
 #### Lightning Web Components
 * Lightning Web Components Developer Guide - https://developer.salesforce.com/docs/component-library/documentation/lwc
 * LWC Playground - https://developer.salesforce.com/docs/component-library/tools/playground
+* LWC Event Propogation - https://developer.salesforce.com/docs/component-library/documentation/lwc/lwc.events_propagation
 #### Useful Dev Tools
 * Color Picker Chrome Extension - https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en
 * VSCode Live Server - https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer

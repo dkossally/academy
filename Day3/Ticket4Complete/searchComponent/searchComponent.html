@@ -1,0 +1,36 @@
+<template>
+    <div class="container">
+        <div class="searchbar slds-grid">
+            <div class="slds-col slds-size_3-of-4">
+                <input class="searchinput" type="text" onchange={updateTerm} onkeyup={searchTypeahead} placeholder="Search"/>
+            </div>
+            <div class="slds-col slds-size_1-of-4">
+                <button class="searchbutton" onclick={search}>Go</button>
+            </div>
+        </div>
+
+        <c-table-component  pagination={shouldDisplayPages}
+                            results={results}
+                            has-results={hasResults}
+                            page={page}
+                            maxpages={maxpages}
+                            actionname="savebookmark"
+                            pagenext="pagenext"
+                            pageprev="pageprev"
+                            pagenum="pagenum"
+                            onsavebookmark={saveBookmark}
+                            onpagenext={nextPage}
+                            onpageprev={prevPage}
+                            onpagenum={navToPage}>
+        </c-table-component>
+
+        <div class="slds-p-top--large slds-text-heading--large">Bookmarks</div>
+
+        <c-table-component  results={bookmarks}
+                            has-results={hasBookmarks}
+                            page={page}
+                            maxpages={maxpages}>
+        </c-table-component>
+
+    </div>
+</template>

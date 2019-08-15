@@ -1,0 +1,59 @@
+<template>
+
+    <div class="resultsTable">
+        <div class="tableheader slds-grid">
+            <div class="cell headercell slds-col slds-size_1-of-6">Object</div>
+            <div class="cell headercell slds-col slds-size_3-of-6">Name</div>
+            <div class={getHeaderStyle}>Date</div>
+            <template if:true={displayAction}>
+                <div class="cell headercell slds-col slds-size_1-of-6">Bookmark</div>
+            </template>
+        </div>
+        <div class="tablerows slds-scrollable">
+            <template if:true={hasResults}>
+                <template for:each={results} for:item="result">
+                    <div class="row slds-grid" key={result.id}>
+                        <div class="cell rowcell slds-col slds-size_1-of-6">
+                            <lightning-icon icon-name={result.icon}></lightning-icon>
+                            <p>{result.sobjectname}</p>
+                        </div>
+                        <div class="cell rowcell slds-col slds-size_3-of-6"><a data-id={result.id}>{result.name}</a>
+                        </div>
+                        <div class={getRowStyle}>{result.createddate}</div>
+                        <template if:true={displayAction}>
+                            <div class="cell rowcell slds-col slds-size_1-of-6">
+                                <button class="bookmark" data-id={result.id} onclick={actionHandler}>Save Bookmark</button>
+                            </div>
+                        </template>
+                        
+                    </div>
+                </template>
+            </template>
+            <template if:false={hasResults}>
+                <div class="row slds-grid">
+                    <p>No Records to Display</p>
+                </div>
+            </template>
+        </div>
+        <div class="tablefooter slds-grid">
+            <template if:true={pagination}>
+                <p class="currentpages">{displayCurrentPage}</p>
+                <template if:true={displayBack}>
+                    <button class="back" onclick={prevPage}>Back</button>
+                </template>
+
+                <template for:each={getPageNumbers} for:item="page">
+                    <button key={page.index} onclick={navToPage} data-index={page.index}
+                        data-array>{page.label}</button>
+                </template>
+
+                <template if:true={displayNext}>
+                    <button class="next" onclick={nextPage}>Next</button>
+                </template>
+            </template>
+        </div>
+
+    </div>
+
+
+</template>
